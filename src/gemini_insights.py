@@ -1,21 +1,21 @@
-import os
 import re
+import streamlit as st
 import pandas as pd
-from dotenv import dotenv_values, load_dotenv
+from dotenv import dotenv_values
 from google import genai
 from pathlib import Path
 
 env_path = Path(__file__).resolve().parent.parent / ".env"
 config = dotenv_values(env_path)
-print("API:", config.get("GEMINI_API_KEY"))
 
-#load_dotenv(dotenv_path=env_path, override=True)
-#GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-#print("API Key:", repr(GEMINI_API_KEY)) 
+# Try loading API key from local .env
+api_key = config.get("GEMINI_API_KEY")
 
-client = genai.Client(
-    api_key=config.get("GEMINI_API_KEY")  
-)
+# If not available (e.g., Streamlit Cloud), use Streamlit Secrets
+if not api_key:
+    api_key = st.secrets["GEMINI_API_KEY"]
+
+client = genai.Client(api_key=api_key)
 
 def generate_insights():
     df = pd.read_csv("outputs/reports/inventory.csv")

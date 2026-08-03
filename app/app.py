@@ -75,18 +75,28 @@ with col1:
 
 with col2:
     st.markdown("### Detected Inventory")
-    st.image("outputs/images/detected_shelf.jpg", use_container_width=True)
+    detected_image = Path("outputs/images/detected_shelf.jpg")
+    if detected_image.exists():
+        st.image(str(detected_image), use_container_width=True)
+    else:
+        st.info("Run the detection to view the annotated shelf image.")
 
 st.caption("""
-**Detection Model:** YOLO-World | **Computer Vision:** OpenCV | **Analytics:** Pandas + Plotly | **Generative AI:** Google Gemini 3.5 Flash
-""")
+    **Detection Model:** YOLO-World | **Computer Vision:** OpenCV | **Analytics:** Pandas + Plotly | **Generative AI:** Google Gemini 3.5 Flash
+    """)
 
 st.divider()
 
 # -------------------- Inventory --------------------
 
-df = pd.read_csv("outputs/reports/inventory.csv")
+inventory_file = Path("outputs/reports/inventory.csv")
 
+if inventory_file.exists():
+    df = pd.read_csv(inventory_file)
+else:
+    st.warning("Please upload and analyze a shelf image to generate the inventory report.")
+    st.stop()
+    
 st.markdown("## Inventory Analysis")
 
 with st.expander("View Complete Inventory"):

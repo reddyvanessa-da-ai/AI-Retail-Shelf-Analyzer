@@ -58,7 +58,7 @@ RetailSense AI demonstrates the integration of modern AI technologies into a pra
 # System Workflow
 
 <p align="center">
-  <img src="assets/workflow.png" alt="RetailSense AI Workflow" width="900">
+<img src="assets/workflow.png" width="900">
 </p>
 
 The RetailSense AI pipeline follows these stages:
@@ -73,6 +73,49 @@ The RetailSense AI pipeline follows these stages:
 8. Generate executive retail intelligence reports.
 9. Display analytics and AI-generated insights through the Streamlit dashboard.
 
+---
+
+# Product Detection
+
+RetailSense AI uses **YOLO-World** to detect retail products from shelf images, generate bounding-box annotations, and extract structured inventory data for downstream analytics.
+
+<p align="center">
+<img src="assets/detection.png" width="900" alt="RetailSense AI Product Detection">
+</p>
+
+---
+
+# Inventory Analytics
+
+RetailSense AI automatically computes inventory statistics, category-wise distribution, and shelf performance metrics to support data-driven retail decision-making.
+
+<p align="center">
+<img src="assets/kpi_dashboard.png" width="900" alt="RetailSense AI KPI Dashboard">
+</p>
+
+<p align="center">
+<img src="assets/inventory_distribution.png" width="900" alt="RetailSense AI Inventory Distribution">
+</p>
+
+---
+
+# Executive Retail Intelligence Report
+
+RetailSense AI integrates **Google Gemini 3.5 Flash** with prompt engineering to transform structured inventory data into executive-level retail intelligence and merchandising recommendations.
+
+<p align="center">
+<img src="assets/executive_report.png" width="900" alt="RetailSense AI Executive Report">
+</p>
+
+The generated report includes:
+
+- Inventory Summary
+- Shelf Distribution Analysis
+- Category Performance
+- Business Recommendations
+- Executive Observation
+
+The report is generated solely from detected inventory and follows a professional retail consulting style.
 ---
 
 # Project Structure

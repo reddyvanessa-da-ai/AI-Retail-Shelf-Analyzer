@@ -58,7 +58,7 @@ RetailSense AI demonstrates the integration of modern AI technologies into a pra
 # System Workflow
 
 <p align="center">
-<img src="workflow.png" width="900">
+  <img src="assets/workflow.png" alt="RetailSense AI Workflow" width="900">
 </p>
 
 The RetailSense AI pipeline follows these stages:

@@ -189,8 +189,22 @@ try:
     st.markdown(insights, unsafe_allow_html=True)
 
 except Exception as e:
-    st.error("Unable to generate the retail intelligence report.")
-    st.code(str(e))
+    error_message = str(e)
+
+    if "503" in error_message or "UNAVAILABLE" in error_message:
+        st.warning(
+            """
+### AI Report Temporarily Unavailable
+
+The Generative AI service is currently experiencing high request volume.  
+Please try generating the report again in a few moments.
+
+Inventory detection and analytics remain fully functional.
+"""
+        )
+    else:
+        st.error("Unable to generate the Executive Retail Intelligence Report.")
+        st.caption(error_message)
 
 st.markdown("---")
 st.markdown("""

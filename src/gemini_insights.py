@@ -1,4 +1,5 @@
 import re
+import time
 import streamlit as st
 import pandas as pd
 from dotenv import dotenv_values
@@ -102,12 +103,21 @@ Formatting Rules
 - Write in a professional consulting style similar to McKinsey, Deloitte, or PwC.
 """
 
-    response = client.models.generate_content(
-        model="models/gemini-3.5-flash",
-        contents=prompt
-    )
-    # Get the generated text
-    insights = response.text
+    for attempt in range(3):
+    try:
+        response = client.models.generate_content(
+            model="models/gemini-3.5-flash",
+            contents=prompt
+        )
+
+        insights = response.text
+        break
+
+    except Exception as e:
+        if attempt < 2:
+            time.sleep(3)
+        else:
+            raise e
 
     # Remove emojis and special characters from the insights
     insights = re.sub(

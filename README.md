@@ -101,13 +101,17 @@ RetailSense AI automatically computes inventory statistics, category-wise distri
 
 # Executive Retail Intelligence Report
 
-RetailSense AI integrates **Google Gemini 3.5 Flash** with prompt engineering to transform structured inventory data into executive-level retail intelligence and merchandising recommendations.
+RetailSense AI leverages **Google Gemini 3.5 Flash** with prompt engineering to transform structured inventory data into executive-level retail intelligence, business recommendations, and merchandising insights.
 
 <p align="center">
-<img src="assets/executive_report.png" width="900" alt="RetailSense AI Executive Report">
+<img src="assets/executive_report_1.png" width="900" alt="Executive Retail Intelligence Report Part 1">
 </p>
 
-The generated report includes:
+<p align="center">
+<img src="assets/executive_report_2.png" width="900" alt="Executive Retail Intelligence Report Part 2">
+</p>
+
+The report includes:
 
 - Inventory Summary
 - Shelf Distribution Analysis
@@ -115,7 +119,7 @@ The generated report includes:
 - Business Recommendations
 - Executive Observation
 
-The report is generated solely from detected inventory and follows a professional retail consulting style.
+All recommendations are generated solely from the detected inventory and follow a structured retail consulting style.
 ---
 
 # Project Structure
